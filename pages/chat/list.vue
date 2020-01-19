@@ -8,7 +8,7 @@
         view.username {{item.name}}
         view.msg {{item.content}}
       view.chat-item-hint
-        view.time {{weixinTime(item.timestamp)}}
+        view.time {{weixinTime(item.timestamp || 0)}}
 </template>
 <script>
   import {_getTimeStringAutoShort2 as weixinTime} from '@/common/js/tools'

@@ -29,11 +29,12 @@ http.delete('user/1').then((res)=>{
 }) 
 
 */
-import {baseUrl} from './index'
+import {isProduction, baseUrl} from './index'
+
 
 export default {
 	config: {
-    baseUrl: '/api/',
+    baseUrl: isProduction ? baseUrl : '/api/',
 		// baseUrl,
 		header: {
 			// 'Content-Type':'application/json;charset=UTF-8',

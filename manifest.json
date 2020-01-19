@@ -76,7 +76,9 @@
             "port" : 8081,
             "proxy" : {
                 "/api" : {
-                    "target" : "http://192.168.1.16:80/", //你的域名
+                    "target" : "https://test.weiwo.info/", //你的域名
+
+                    // "target" : "http://192.168.1.16:80/", //你的域名
                     "changeOrigin" : true,
                     "secure" : false,
                     "pathRewrite" : {
@@ -85,6 +87,9 @@
                 }
             }
         },
-        "template" : "index.html"
+        "template" : "index.html",
+        "router" : {
+            "base" : "/page/websocket/"
+        }
     }
 }

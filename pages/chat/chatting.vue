@@ -16,7 +16,7 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
   view.msg-list(@keyup.enter="send")
     view.msg-header
       text.iconfont.iconfanhui(@tap.stop="$navigateBack")
-      |正在和{{you && you.name}}聊天{{endIndex}}{{isLoading}}
+      |正在和{{you && you.name}}聊天
     scroll-view.msg-content(
       :scroll-top="0"
       scroll-y="true"
@@ -44,8 +44,8 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
           p.msg-text {{item.content}}
           <!-- p.msg-text dsfsd -->
     view.msg-footer
-      <!-- view.msg-footer-input: input#msg(@input="autoSize" focus placeholder="骂点什么吧...") -->
-      view.msg-footer-input: textarea(@input.trim="setContent" :value="content" rows="1" fixed auto-height focus placeholder="骂点什么吧...")
+      <!-- view.msg-footer-input: input#msg(@input="autoSize" focus placeholder="说点什么吧...") -->
+      view.msg-footer-input: textarea(@input.trim="setContent" :value="content" rows="1" fixed auto-height focus placeholder="新年快乐...")
       button(@tap.enter="send" type="primary" size="mini") 发送
 </template>
 
@@ -188,6 +188,7 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
           this.page++
           if (this.page >= data.data.total) this.loadedDone = true
           if (!this.option.cid) this.option.cid = data.c_info && data.c_info.id
+          // if (this.option.mu) this.option.cid = this.option.mu
         })
       },
       async send() {
@@ -208,7 +209,8 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
       initSocket() {
         // WebSocket('wss://echo.websocket.org/')
         // const url = 'ws://192.168.1.16:8282'
-        const url = 'ws://111.231.78.147:8282'
+        let protocol = location.protocol === 'https:' ? 'wss' : 'ws'
+        const url = `${protocol}://test.weiwo.info:8282`
         // var ws =  new WebSocket("ws://192.168.1.16:8282");
         this.createWebSocket(url)
         if (!this.ws) return
@@ -220,7 +222,10 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
           if (client_id) {
             this.$api.bindOpenid(client_id, this.hasMid ? this.openid : '')
           } else {
-            if (data.cid != this.option.cid) return
+            const cid = this.option.mu || this.option.cid
+            // if (data.cid != this.option.cid) return
+            console.log('cid', cid)
+            if (data.cid != cid) return
             const obj = {
               content: data.message,
               type: this.hasMid ? 2 : 1,
