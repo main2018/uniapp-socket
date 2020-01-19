@@ -209,7 +209,7 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
       initSocket() {
         // WebSocket('wss://echo.websocket.org/')
         // const url = 'ws://192.168.1.16:8282'
-        let protocol = location.protocol === 'https:' ? 'wss' : 'ws'
+        let protocol = location.protocol === 'https:' ? 'wss' : 'wss'
         const url = `${protocol}://test.weiwo.info:8282`
         // var ws =  new WebSocket("ws://192.168.1.16:8282");
         this.createWebSocket(url)

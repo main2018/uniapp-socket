@@ -25,12 +25,21 @@
       const did = 1340
       const cid = 6
       this.option = {...option, did, cid}
-      const hasMid = !!this.option.mu
-      this.hasMid = hasMid
-      const res = await this.$api.getChatHistory(hasMid)
-      const _list = res.lists
-      this.list = _list
-      console.log(_list)
+      
+      this.getList()
+    },
+    methods: {
+      async getList() {
+        const hasMid = !!this.option.mu
+        this.hasMid = hasMid
+        const res = await this.$api.getChatHistory(hasMid)
+        const _list = res.lists
+        this.list = _list
+      },
+    },
+    onShow() {
+      console.log(8888888888888)
+      this.getList()
     },
     onHide() {
       console.log(666666666666)
