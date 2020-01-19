@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px'
+      })
+    </script>
+    <link rel="stylesheet" href="<%= BASE_URL %>static/index.css" />
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1524326_ywist38y0l.css"/>
+    <!-- <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js "></script> -->
+  </head>
+  <body>
+    <noscript>
+        <strong>Please enable JavaScript to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript" src="https://map.qq.com/api/js?v=2.exp&key=NEPBZ-SDK3W-SWMRQ-R4ZOY-X5QRT-QQFL5&libraries=convertor"></script>
+  </body>
+</html>

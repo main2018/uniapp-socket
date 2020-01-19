@@ -1,0 +1,9 @@
+@import "./variable.scss";
+
+html,body{
+  font-size: $font-size-base;
+}
+
+swiper{
+  height: 100%;
+}

@@ -1,0 +1,321 @@
+@import "./variable.scss";
+
+// 布局
+.flex{
+  display: flex;
+  // saf
+  &.center{
+    align-items: center;
+  }
+  &.center-x{
+    justify-content: center;
+  }
+  &.wrap{
+    flex-wrap: wrap;
+  }
+  &-y{
+    flex-direction: column;
+  }
+  &-space{
+    &-a{
+      justify-content: space-around;
+    }
+    &-b{
+      justify-content: space-between;
+    }
+  }
+  .flex-1{
+    flex: 1;
+  }
+}
+
+.font{
+  &-color{
+    &-primary{
+      color: $color-primary !important;
+    }
+    &-red{
+      color: $color-red;
+    }
+    &-grey{
+      color: $color-grey;
+    }
+    &-grey-l{
+      color: $color-grey-l;
+    }
+    &-link{
+      color: $color-link;
+    }
+    &-white{
+      color: $color-white;
+    }
+  }
+  &-size{
+    @for $i from 1 through 100{
+      &-#{$i}{
+        font-size: #{$i}rpx!important;
+      }
+    }
+    &-sm{
+      font-size: $font-size-sm!important;
+      &-s{
+        font-size: $font-size-sm-s!important;
+      }
+    }
+    &-base{
+      font-size: $font-size-base;
+    }
+    &-lg{
+      font-size: $font-size-lg;
+    }
+  }
+  &-weight{
+    &-bold{
+      font-weight: bold;
+    }
+  }
+  &-align{
+    &-center{
+      text-align: center;
+    }
+    &-right {
+     text-align: right;
+    }
+  }
+  &-weight
+    &-bold{
+      font-weight: bold;
+    }
+}
+
+.line{
+  &-h1{
+    line-height: 1;
+    &-5{
+      line-height: 1.5;
+    }
+  }
+}
+.background{
+  &-color{
+    &-grey{
+      background-color: $color-grey;
+      &-l{
+        background-color: $color-grey-l;
+      }
+    }
+    &-primary{
+      background-color: $color-primary;
+    }
+  }
+}
+.bg-yellow-linear {
+  background: linear-gradient(to right, #fcae5b, #fd9c4f);
+}
+.bg-blue-linear {
+  background: linear-gradient(to right, #74a5fe , #459aff);
+}
+.border{
+  $arr: 1, 2;
+  @each $i in $arr{
+    &-#{$i}{
+      border: #{$i}rpx solid $color-grey-l;
+    }
+    &-b-#{$i}{
+      border-bottom: #{$i}rpx solid $color-grey-l;
+    }
+  }
+}
+.page-bg {
+  background-color: $uni-bg-color;
+  &-grey {
+     background-color: $uni-bg-color-grey;
+  }
+}
+.mod-bg{
+  background-color: $uni-bg-color;
+}
+
+
+// $arr: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80;
+$max: 100;
+.margin{
+  // @each $item in $arr{
+  //   &-#{$item}{
+  //     margin: #{$item}rpx;
+  //   }  
+  // }
+  @for $item from 1 through $max{
+    &-#{$item}{
+      margin: #{$item}rpx;
+    }  
+  }
+  &-x{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        margin-left: #{$item}rpx;
+        margin-right: #{$item}rpx;
+      }  
+    }
+  }
+  &-y{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        margin-top: #{$item}rpx;
+        margin-bottom: #{$item}rpx;
+      }  
+    }
+  }
+  &-l{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        margin-left: #{$item}rpx;
+      }  
+    }
+  }
+  &-r{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        margin-right: #{$item}rpx;
+      }  
+    }
+  }
+  &-t{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        margin-top: #{$item}rpx;
+      }  
+    }
+  }
+  &-b{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        margin-bottom: #{$item}rpx;
+      }  
+    }
+  }
+}
+.padding{
+  @for $item from 1 through $max{
+    &-#{$item}{
+      padding: #{$item}rpx;
+    }  
+  }
+  &-x{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        padding-left: #{$item}rpx;
+        padding-right: #{$item}rpx;
+      }  
+    }
+  }
+  &-y{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        padding-top: #{$item}rpx;
+        padding-bottom: #{$item}rpx;
+      }  
+    }
+  }
+  &-l{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        padding-left: #{$item}rpx;
+      }  
+    }
+  }
+  &-r{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        padding-right: #{$item}rpx;
+      }  
+    }
+  }
+  &-t{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        padding-top: #{$item}rpx;
+      }  
+    }
+  }
+  &-b{
+    @for $item from 1 through $max{
+      &-#{$item}{
+        padding-bottom: #{$item}rpx;
+      }  
+    }
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.split{
+  height: 20rpx;
+  background-color: $color-grey-l;
+}
+// 按钮，标签
+.btn {
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  background-color: #009688;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 28rpx;
+  border: none;
+  border-radius: 2rpx;
+  cursor: pointer;
+  margin-right: 12rpx;
+  &.fullwidth{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    &.large{
+      height: 80rpx;
+      line-height: 80rpx;
+    }
+  }
+  &-sm {
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 14rpx;
+    font-size: 22rpx;
+  }
+  &-danger {
+    background-color: #ff5722;
+  }
+  &.primary {
+    background-color: $color-primary;
+  }
+  &-disabled {
+    border: 1px solid #e6e6e6;
+    background-color: #fbfbfb;
+    color: #c9c9c9;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+  &-primary {
+    border: 1px solid #c9c9c9;
+    background-color: #fff;
+    color: #555;
+  }
+  &-grey {
+    border: 1px solid #f3f5f6;
+    background-color: #f3f5f6;
+    color: #798697;
+  }
+  &-radius {
+    border-radius: 200rpx;
+    padding: 0 16rpx;
+  }
+  &-radius-xs {
+    border-radius: 8rpx;
+    
+  }
+}
