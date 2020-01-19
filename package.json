@@ -1,0 +1,24 @@
+{
+  "name": "websocket-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/main2018/uniapp-socket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/main2018/uniapp-socket/issues"
+  },
+  "homepage": "https://github.com/main2018/uniapp-socket#readme"
+}
