@@ -16,7 +16,7 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
   view.msg-list(@keyup.enter="send")
     view.msg-header
       text.iconfont.iconfanhui(@tap.stop="$navigateBack")
-      |正在和{{you && you.name}}聊天
+      |正在和{{you && you.name}}聊天{{endIndex}}
     scroll-view.msg-content(
       :scroll-top="0"
       scroll-y="true"
@@ -36,7 +36,7 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
         :data-self="hasMid ? item.type == 1 : item.type == 2"
         v-for="item, index in msgList"
         :key="item.timestamp"
-        :id="`msg-item-${index}`"
+        :id="`msg-item-${item.timestamp}`"
         )
         image.msg-avator(src="" alt="用户头像")
         view.msg-info
@@ -91,9 +91,12 @@ view.msg-item(data-self v-for="item, index in 10" :id="`msg-item-${index}`")
     },
     watch: {
       msgList() {
-        if (!this.needScroll) return
+        // if (!this.needScroll) return
+        const pageSize = 10
+        const keepIndex = this.msgList.length - (this.page - 1) * pageSize
+        const index = this.endIndex ? keepIndex : this.msgList.length - 1
         this.$nextTick(() => {
-          this.endIndex = this.msgList.length - 1
+          this.endIndex = this.msgList[index].timestamp
         })
       }
     },
